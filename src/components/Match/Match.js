@@ -15,28 +15,19 @@ class Match extends Component {
 
    
     return (
-      <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          One of three columns
-        </div>
-        <div class="col-sm">
-        <div className={classes.Match}>
-          <Team team= {this.props.home}  /> X 
-          <Team team= {this.props.away}  />
-
-        </div>
-        </div>
-        <div class="col-sm">
-          One of three columns
-        </div>
-      </div>
-    </div>
-     
-
-        
       
-    );
+      <div class="row">
+          
+          <div class="col-xs-2"><Team team= {this.props.home}/> </div>
+          <div class="col-xs-2">X</div>
+          <div class="col-xs-2"><Team team= {this.props.away} /> </div>
+           
+       </div>
+     
+      
+        
+
+    )
   }
 }
 
