@@ -33,7 +33,7 @@ class BetBuilder extends Component {
 
         let matches = null;
 
-        console.log(this.state.matches);
+       // console.log(this.state.matches);
 
         return (
             <Aux>
@@ -44,7 +44,7 @@ class BetBuilder extends Component {
                                 {this.state.matches.map((match, index) => {
                                     
                                     return <Match
-                                        number={match.number}
+                                        number={match}
                                         home={match.home}
                                         away={match.away}
                                     />
