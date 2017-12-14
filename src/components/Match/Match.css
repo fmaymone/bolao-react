@@ -1,6 +1,16 @@
+.inputPlacar{
+
+   
+}
+
+.form-control{
+    width: 40px;
+
+}
 
 .team-icon {
     border-radius:100%;
+    color:blue;
 }
 
 .panel {
@@ -818,7 +828,7 @@
     }#widget-classificacao .lista-de-jogos {
         position: relative;
     }
-    #widget-classificacao .lista-de-jogos-conteudo {
+    #widget-classificacao .listadejogosconteudo {
         opacity: 1;
         transition: opacity .35s;
     }
