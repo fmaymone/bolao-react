@@ -4,60 +4,71 @@ import Aux from '../../hoc/Aux';
 import Team from '../../components/Match/Team/Team';
 import Match from '../../components/Match/Match';
 import classes from './BetBuilder.css';
+import axios from 'axios';
+
 
 class BetBuilder extends Component {
 
-    // constructor(props){
-    //     super(props);
-    //     this.state = {};
+    constructor(props) {
+		super(props);
+		this.state = {matches: []};
+	}
 
-    // }
+    componentDidMount() {
+
+     
+        axios.get('http://localhost:8080/api/matches')
+            .then(response => {
+                console.log("Dentro do didmount");
+                this.setState({ matches: response.data._embedded.matches });
+                console.log(this.state.matches);
+                console.log("Dentro do didmount");
+            });
+
+    }
 
     state = {
-
-        matches: [
-            {
-                match: 1, "home": { isoFlagName: 'it', name: 'Italia', reducedName: 'ITA', home: true },
-                "away": { isoFlagName: 'br', name: 'Brasil', reducedName: 'BRA', home: false }
-            },
-            {
-                match: 2, home: { isoFlagName: 'fr', name: 'France', reducedName: 'FRA', home: true },
-                away: { isoFlagName: 'ad', name: 'Andorra', reducedName: 'AND', home: false }
-            }
-
-        ]
-
+      
+        matches: []
 
     }
     render() {
 
-        let matches = null;
+        var matches = this.state.matches.map(match =>
+			<Match key={match._links.self.href} match={match}/>
+		);
 
-       // console.log(this.state.matches);
+        console.log("Dentro do render");
+        console.log(this.state.matches);
+        console.log("Dentro do render");
 
+
+    
+        
         return (
             <Aux>
-                <div class="container-fluid">
-                    <table class="table">
-                        <tbody>
-                            <tr class="align-baseline">
-                                {this.state.matches.map((match, index) => {
-                                    
-                                    return <Match
-                                        number={match}
-                                        home={match.home}
-                                        away={match.away}
-                                    />
-                                })}  
-                            </tr> 
-                        </tbody>            
-                    </table>
-                </div>
-
-              
+               <table>
+				<tbody>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Description</th>
+					</tr>
+					{matches}
+				</tbody>
+			</table>
             </Aux>
         )
+            
+        }
+
+       
+        
     }
-}
+
+
+
+
 
 export default BetBuilder;
+
