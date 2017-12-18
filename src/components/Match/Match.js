@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Team from './Team/Team';
 import classes from '../Match/Match.css';
-import axios from 'axios';
+import axiosClasses from 'axios';
 
 
 
@@ -12,20 +12,32 @@ import axios from 'axios';
 
 class Match extends Component {
 
-  componentDidMount() {
-    
+
+
+
+
+
+  render() {
+
     const awayUrl = this.props.match._links.away.href;
     const homeUrl = this.props.match._links.home.href;
-   
-    axios.get(awayUrl)
+    console.log("AXIOS");
+    //console.log(axios);
+    console.log("AXIOS");
+
+
+    axiosClasses.get(awayUrl)
       .then(response => {
         console.log("Dentro do away");
         this.setState({ away: response.data._embedded });
         console.log(this.state.away);
         console.log("Dentro do away");
+      })
+      .catch((error) => {
+        console.log("error", error)
       });
 
-    axios.get(homeUrl)
+    axiosClasses.get(homeUrl)
       .then(response => {
         console.log("Dentro do home");
         this.setState({ home: response.data._embedded });
@@ -33,20 +45,7 @@ class Match extends Component {
         console.log("Dentro do home");
       });
 
-  }
 
- state = {
-   away: [],
-   home: []
-
-
- }
-
-  render() {
-
-
-
-    
 
     console.log("Time Away");
     //console.log(away);

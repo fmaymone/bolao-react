@@ -17,7 +17,7 @@ class BetBuilder extends Component {
     componentDidMount() {
 
      
-        axios.get('http://localhost:8080/api/matches')
+        axios.get('http://localhost:8080/api/matches/')
             .then(response => {
                 console.log("Dentro do didmount");
                 this.setState({ matches: response.data._embedded.matches });
@@ -25,6 +25,18 @@ class BetBuilder extends Component {
                 console.log("Dentro do didmount");
             });
 
+    axios.get("http://localhost:8080/api/matches/4/away")
+      .then(response => {
+        console.log("Dentro do away");
+        this.setState({ away: response.data._embedded });
+        console.log(this.state.away);
+        console.log("Dentro do away");
+      })
+      .catch((error) => {
+        console.log("error",error)
+      });
+            
+            
     }
 
     state = {
@@ -36,11 +48,14 @@ class BetBuilder extends Component {
 
         var matches = this.state.matches.map(match =>
 			<Match key={match._links.self.href} match={match}/>
-		);
+        );
+        
+        console.log("AXIOS");
+        console.log(axios);
+        console.log("AXIOS");
 
-        console.log("Dentro do render");
-        console.log(this.state.matches);
-        console.log("Dentro do render");
+ 
+
 
 
     
