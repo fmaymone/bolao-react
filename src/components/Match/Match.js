@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Team from './Team/Team';
 import classes from '../Match/Match.css';
-import axiosClasses from 'axios';
+import axios from 'axios';
 
 
 
@@ -13,23 +13,17 @@ import axiosClasses from 'axios';
 class Match extends Component {
 
 
+  componentDidMount() {
+    
+    var awayUrl = this.props.match._links.away.href;
+    var homeUrl = this.props.match._links.home.href;
 
 
-
-
-  render() {
-
-    const awayUrl = this.props.match._links.away.href;
-    const homeUrl = this.props.match._links.home.href;
-    console.log("AXIOS");
-    //console.log(axios);
-    console.log("AXIOS");
-
-
-    axiosClasses.get(awayUrl)
+    axios.get(awayUrl)
       .then(response => {
         console.log("Dentro do away");
-        this.setState({ away: response.data._embedded });
+        console.log(response.data._embedded);
+        this.setState({ away: response.data });
         console.log(this.state.away);
         console.log("Dentro do away");
       })
@@ -37,20 +31,20 @@ class Match extends Component {
         console.log("error", error)
       });
 
-    axiosClasses.get(homeUrl)
+    axios.get(homeUrl)
       .then(response => {
         console.log("Dentro do home");
-        this.setState({ home: response.data._embedded });
+        this.setState({ home: response.data });
         console.log(this.state.home);
         console.log("Dentro do home");
       });
 
-
-
     console.log("Time Away");
-    //console.log(away);
 
+  }
 
+  render() {
+  
     return (
 
       // <div class="row">
@@ -61,9 +55,9 @@ class Match extends Component {
 
       //  </div>
 
-      <div class="panel panel-default col-sm-12">
-        <div class='panel panel-heading text-center'>Jogo {this.props.match.num}</div>
-        <div class='panel-body'>
+      <div className="panel panel-default col-sm-12">
+        <div className='panel panel-heading text-center'>Jogo {this.props.match.num}</div>
+        <div className='panel-body'>
           {/* <ul class="list-group">
             <li class="list-group-item text-center">Finished</li>
             <li class="list-group-item text-center">2015-9-23</li>
@@ -71,7 +65,7 @@ class Match extends Component {
           <div class='col-sm-4 text-center'>
             <ul class={classes.listadejogosconteudo}>
 
-              <Team team={this.props.match.num} />
+              {/* <Team team={this.state.home} /> */}
             </ul>
           </div>
           <div class="col-sm-4 text-center">
@@ -87,7 +81,7 @@ class Match extends Component {
 
           <div class='col-sm-4 text-center'>
             <ul class="list-group">
-              <Team team={this.props.match.num} />
+            {/* <Team team={this.state.away} /> */}
             </ul>
           </div>
 

@@ -27,16 +27,16 @@ class Team extends Component {
 
     if (this.props.team.home) {
       team = (
-        <ul class="list-group">
-          <li class="list-group-item">{reducedName} {flag}  </li>
-          {/* <li class="list-group-item"></li> */}
+        <ul classNameName="list-group">
+          <li className="list-group-item">{reducedName} {flag}  </li>
+          {/* <li className="list-group-item"></li> */}
         </ul>
       )
     } else {
       team = (
-        <ul class="list-group">
-          <li class="list-group-item">{flag} {reducedName}  </li>
-          {/* <li class="list-group-item"></li> */}
+        <ul className="list-group">
+          <li className="list-group-item">{flag} {reducedName}  </li>
+          {/* <li className="list-group-item"></li> */}
         </ul>
       )
       
