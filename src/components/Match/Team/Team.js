@@ -28,19 +28,17 @@ class Team extends Component {
     if (this.props.team.home) {
       team = (
         <ul classNameName="list-group">
-          <li className="list-group-item">{reducedName} {flag}  </li>
+          <li className="list-group-item">{name} {flag} </li>
           {/* <li className="list-group-item"></li> */}
         </ul>
       )
     } else {
       team = (
         <ul className="list-group">
-          <li className="list-group-item">{flag} {reducedName}  </li>
+          <li className="list-group-item">{flag} {name} </li>
           {/* <li className="list-group-item"></li> */}
         </ul>
       )
-      
-    
     }
     return team;
 
@@ -49,7 +47,7 @@ class Team extends Component {
 
 // Team.propTypes = {
 
-//   isoFlagName: PropTypes.string.isRequired
+// isoFlagName: PropTypes.string.isRequired
 
 
 // }
