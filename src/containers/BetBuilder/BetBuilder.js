@@ -37,13 +37,13 @@ class BetBuilder extends Component {
             <Match key={match._links.self.href} match={match} />
         );
         return (
-            <Aux>
+            
                 <table>
                     <tbody>
                         {matches}
                     </tbody>
                 </table>
-            </Aux>
+            
         )
     }
 
