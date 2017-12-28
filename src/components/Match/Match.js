@@ -15,6 +15,8 @@ import {
 
 } from 'material-ui/Table';
 
+import TextField from 'material-ui/TextField';
+
 
 class Match extends Component {
   state = {
@@ -60,7 +62,9 @@ class Match extends Component {
 
     <div>
       <TableCell><Team team= {this.state.home}/> </TableCell>
+      <TableCell> <TextField  type={"number"}/> </TableCell>
       <TableCell>X </TableCell>
+      <TableCell> <TextField type={"number"}/> </TableCell>
       <TableCell><Team team= {this.state.away}/> </TableCell>
       
     </div>

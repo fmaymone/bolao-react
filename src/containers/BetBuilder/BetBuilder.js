@@ -15,8 +15,7 @@ import CommunicationCall from 'material-ui/SvgIcon';
 import CommunicationChatBubble from 'material-ui/SvgIcon';
 import { indigo500 } from 'material-ui/colors';
 import CommunicationEmail from 'material-ui/SvgIcon';
-import {
-    Table,
+import Table, {
     TableBody,
     TableHeader,
     TableHeaderColumn,
@@ -24,7 +23,6 @@ import {
     TableRowColumn,
     TableCell,
     TableHead
-
 } from 'material-ui/Table';
 
 
@@ -96,9 +94,11 @@ class BetBuilder extends Component {
         );
         
         return (
-            <TableBody>
-                {matches}
-             </TableBody>
+            <Table>
+                <TableBody>
+                    {matches}
+                </TableBody>
+             </Table>
             // <Paper className={classes.root}>
                 /* <Table className={classes.table}>
                     <TableHead>
