@@ -3,6 +3,17 @@ import Team from './Team/Team';
 import classes from '../Match/Match.css';
 import axios from 'axios';
 import Grid from 'material-ui/Grid';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+  TableCell,
+  TableHead
+
+} from 'material-ui/Table';
 
 
 class Match extends Component {
@@ -48,8 +59,10 @@ class Match extends Component {
     return (
 
     <div>
-       <Team team= {this.state.home}/> X  <Team team= {this.state.away}/> 
-     
+      <TableCell><Team team= {this.state.home}/> </TableCell>
+      <TableCell>X </TableCell>
+      <TableCell><Team team= {this.state.away}/> </TableCell>
+      
     </div>
 
     )

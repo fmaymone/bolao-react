@@ -27,15 +27,16 @@ import {
 
 } from 'material-ui/Table';
 
+
 const styles = theme => ({
-    root: {
-        width: '100%',
-        marginTop: theme.spacing.unit * 3,
-        overflowX: 'auto',
-    },
-    table: {
-        minWidth: 700,
-    },
+    // root: {
+    //     width: '100%',
+    //     marginTop: theme.spacing.unit * 3,
+    //     overflowX: 'auto',
+    // },
+    // table: {
+    //     minWidth: 700,
+    // },
 });
 
 
@@ -83,42 +84,23 @@ class BetBuilder extends Component {
 
 
     render() {
-
+        const { classes } = this.props;
         var matches = this.state.matches.map(match =>
-            <TableRow>
-                <TableCell>
-                    <Match key={match.id} match={match} />
-                </TableCell>
-            </TableRow>
+           
+                    <TableRow>
+                        <TableCell>
+                            <Match key={match.id} match={match} />
+                        </TableCell>
+                    </TableRow>
+               
         );
-
+        
         return (
-            /*<div className={classes.root}>
-                <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                        <Table>
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell>Dessert (100g serving)</TableCell>
-                                    <TableCell numeric>Calories</TableCell>
-                                    <TableCell numeric>Fat (g)</TableCell>
-                                    <TableCell numeric>Carbs (g)</TableCell>
-                                    <TableCell numeric>Protein (g)</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-
-                                {matches}
-
-                            </TableBody>
-                        </Table>
-                    </Grid>
-                </Grid>
-
-
-            </div>*/
-            <Paper className={classes.root}>
-                <Table className={classes.table}>
+            <TableBody>
+                {matches}
+             </TableBody>
+            // <Paper className={classes.root}>
+                /* <Table className={classes.table}>
                     <TableHead>
                         <TableRow>
                             <TableCell>Dessert (100g serving)</TableCell>
@@ -141,8 +123,11 @@ class BetBuilder extends Component {
                             );
                         })}
                     </TableBody>
-                </Table>
-            </Paper>
+            //     </Table> */
+            //      {/* <Table className={classes.table}> */}
+                 
+            //     {/* </Table> */}
+            // // </Paper>
         )
     }
 
