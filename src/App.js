@@ -23,11 +23,7 @@ class App extends Component {
 
 
       <div >
-        
-        
-        
-        
-        <AppBar position="static">
+      <AppBar position="static">
         <Toolbar>
           <IconButton  color="contrast" aria-label="Menu">
             <MenuIcon />

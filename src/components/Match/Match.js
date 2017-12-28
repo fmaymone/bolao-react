@@ -48,9 +48,8 @@ class Match extends Component {
     return (
 
     <div>
-      <Grid item xs={2}><Team team= {this.state.home}/> </Grid>
-      <Grid item xs={2}>X</Grid>
-      <Grid item xs={2}><Team team= {this.state.away} /> </Grid>
+       <Team team= {this.state.home}/> X  <Team team= {this.state.away}/> 
+     
     </div>
 
     )
