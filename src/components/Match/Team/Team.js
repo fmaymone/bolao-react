@@ -8,8 +8,8 @@ class Team extends Component {
   render() {
 
     let name = this.props.team.name;
-    let reducedName = this.props.team.reducedName;
-    let isoFlagName = this.props.team.isoFlagName;
+    let reducedName = this.props.team.name;
+    let isoFlagName = this.props.team.iso2;
     let flag = null;
     let size = '2x';
     let team = null;

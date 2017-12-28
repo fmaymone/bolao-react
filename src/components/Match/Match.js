@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Team from './Team/Team';
 import classes from '../Match/Match.css';
 import axios from 'axios';
+import Grid from 'material-ui/Grid';
 
 
 class Match extends Component {
@@ -14,14 +15,14 @@ class Match extends Component {
 
   componentWillMount() {
 
-    var awayUrl = this.props.match._links.away.href;
-    var homeUrl = this.props.match._links.home.href;
-
+    var awayUrl = "http://localhost:3000/teams/" +this.props.match.away_team ;
+    var homeUrl = "http://localhost:3000/teams/" +this.props.match.home_team ;
+    
 
     axios.get(awayUrl)
       .then(response => {
         console.log("Dentro do away");
-        console.log(response.data._embedded);
+        console.log(response.data);
         this.setState({ away: response.data });
         console.log(this.state.away);
         console.log("Dentro do away");
@@ -46,49 +47,11 @@ class Match extends Component {
 
     return (
 
-      // <div class="row">
-
-      // <div class="col-xs-2"><Team team= {this.props.home}/> </div>
-      // <div class="col-xs-2">X</div>
-      // <div class="col-xs-2"><Team team= {this.props.away} /> </div>
-
-      // </div>
-
-      <div className="panel panel-default col-sm-12">
-        <div className='panel panel-heading text-center'>Jogo {this.props.match.num}</div>
-        <div className='panel-body'>
-          {/* <ul class="list-group">
-<li class="list-group-item text-center">Finished</li>
-<li class="list-group-item text-center">2015-9-23</li>
-</ul> */}
-          <div class='col-sm-4 text-center'>
-            <ul class={classes.listadejogosconteudo}>
-
-              {<Team team={this.state.home} />}
-            </ul>
-          </div>
-          <div class="col-sm-4 text-center">
-            <ul class="list-group">
-              <li class="list-group-item">
-
-                <input id="textinput" class="form-control form-control-sm small-input" maxlength="1" name="textinput" size="1" type="tel" class="form-control input-md"></input> X <input id="textinput" name="textinput" size="1" type="number" class="form-control input-md"></input>
-              </li>
-
-
-            </ul>
-          </div>
-
-          <div class='col-sm-4 text-center'>
-            <ul class="list-group">
-              {<Team team={this.state.away} />}
-            </ul>
-          </div>
-
-
-        </div>
-      </div>
-
-
+    <div>
+      <Grid item xs={2}><Team team= {this.state.home}/> </Grid>
+      <Grid item xs={2}>X</Grid>
+      <Grid item xs={2}><Team team= {this.state.away} /> </Grid>
+    </div>
 
     )
   }

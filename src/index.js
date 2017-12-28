@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
+import 'typeface-roboto'
 
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -5,6 +5,10 @@ import Team from '../../components/Match/Team/Team';
 import Match from '../../components/Match/Match';
 import classes from './BetBuilder.css';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import Grid from 'material-ui/Grid';
 
 
 class BetBuilder extends Component {
@@ -16,10 +20,10 @@ class BetBuilder extends Component {
 
     componentWillMount() {
 
-        axios.get('http://localhost:8080/api/matches/')
+        axios.get('http://localhost:3000/matches/')
             .then(response => {
                 console.log("Dentro do didmount");
-                this.setState({ matches: response.data._embedded.matches });
+                this.setState({ matches: response.data });
                 console.log(this.state.matches);
                 console.log("Dentro do didmount");
             });
@@ -34,16 +38,29 @@ class BetBuilder extends Component {
     render() {
 
         var matches = this.state.matches.map(match =>
-            <Match key={match._links.self.href} match={match} />
+            <Grid item xs={6}>
+            <Match key={match.id} match={match} />
+            </Grid>
         );
-        return (
+        /*return (
             
                 <table>
                     <tbody>
-                        {matches}
+                        
                     </tbody>
                 </table>
             
+        )*/
+        return(
+        <div className={classes.root}>
+            <Grid container spacing={24}>
+                
+                   {matches}
+
+                
+                
+            </Grid>
+        </div>
         )
     }
 
