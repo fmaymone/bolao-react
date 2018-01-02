@@ -3,6 +3,7 @@ import Team from './Team/Team';
 import classes from '../Match/Match.css';
 import axios from 'axios';
 import Grid from 'material-ui/Grid';
+
 import {
   Table,
   TableBody,
@@ -28,9 +29,9 @@ class Match extends Component {
 
   componentWillMount() {
 
-    var awayUrl = "http://localhost:3000/teams/" +this.props.match.away_team ;
-    var homeUrl = "http://localhost:3000/teams/" +this.props.match.home_team ;
-    
+    var awayUrl = "http://localhost:3000/teams/" + this.props.match.away_team;
+    var homeUrl = "http://localhost:3000/teams/" + this.props.match.home_team;
+
 
     axios.get(awayUrl)
       .then(response => {
@@ -60,14 +61,26 @@ class Match extends Component {
 
     return (
 
-    <div>
-      <TableCell><Team team= {this.state.home}/> </TableCell>
-      <TableCell> <TextField  type={"number"}/> </TableCell>
-      <TableCell>X </TableCell>
-      <TableCell> <TextField type={"number"}/> </TableCell>
-      <TableCell><Team team= {this.state.away}/> </TableCell>
-      
-    </div>
+      <div>
+        <TableCell>
+       
+     <Team team={this.state.home} /> </TableCell>  
+        <TableCell> <TextField type="number"
+          className="text-field-amount"
+          onInput={(e) => {
+            e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 2)
+          }}
+          min={0}/> </TableCell>
+        <TableCell>X </TableCell>
+        <TableCell> <TextField type="number"
+    className="text-field-amount"
+    onInput={(e)=>{ 
+        e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,2)
+    }}
+    min={0}/> </TableCell>
+        <TableCell><Team team={this.state.away} /> </TableCell>
+
+      </div>
 
     )
   }
