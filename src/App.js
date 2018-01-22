@@ -42,27 +42,24 @@ const style = {
 injectTapEventPlugin();
 class App extends Component {
   render() {
-   
+
     return (
 
-
-      
-
-  <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
 
         <AppBar position="static" color="primary">
-        <Toolbar>
-          <Typography type="title" color="inherit">
-            Bolão
+          <Toolbar>
+            <Typography type="title" color="inherit">
+              Bolão
           </Typography>
-        </Toolbar>
-      </AppBar>
-     
-    
-         
-      
+          </Toolbar>
+        </AppBar>
 
-      
+
+
+
+
+
 
       </MuiThemeProvider>
 
