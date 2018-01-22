@@ -21,10 +21,10 @@ class BetBuilder extends Component {
 
     render () {
         console.log('BetBuilder');
-        console.log(this.props);
+        console.log(this.props.data);
         console.log('BetBuilder');
         return (
-           <h1>Olar {this.props.ctr} </h1>
+           <h1>Olar {this.props.data.groups.a.matches[0].date} </h1>
         );
     }
 }
