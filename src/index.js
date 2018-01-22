@@ -5,15 +5,24 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Demo from './demo'
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+
+import counterReducer from './store/reducers/counter';
+import resultReducer from './store/reducers/result';
+import DataReducer from './store/reducers/DataReducer';
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import 'typeface-roboto'
 
+const rootReducer = combineReducers({
+  data: DataReducer,
+  result: resultReducer
+});
 
-const rootElement = document.querySelector('#root');
-if (rootElement) {
-  render(<App />, rootElement);
-}
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+const store = createStore(rootReducer);
+
+
+ReactDOM.render(<App store={store} />, document.getElementById('root'));

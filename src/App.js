@@ -7,16 +7,9 @@ import AppBar from 'material-ui/AppBar';
 import BetBuilder from './containers/BetBuilder/BetBuilder';
 import './App.css';
 import Button from "material-ui/Button";
-
-
-
-
-
 import Toolbar from 'material-ui/Toolbar';
-
 import Typography from 'material-ui/Typography';
 import 'typeface-roboto'
-
 import { createMuiTheme } from 'material-ui/styles';
 import blue from 'material-ui/colors/blue';
 import green from 'material-ui/colors/green';
@@ -41,7 +34,13 @@ const style = {
 };
 injectTapEventPlugin();
 class App extends Component {
+
+
   render() {
+
+    console.log('constructor');
+    console.log(this.props.store);
+    console.log('constructor');
 
     return (
 
@@ -54,13 +53,6 @@ class App extends Component {
           </Typography>
           </Toolbar>
         </AppBar>
-
-
-
-
-
-
-
       </MuiThemeProvider>
 
     );
