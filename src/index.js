@@ -8,6 +8,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 
+
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 import DataReducer from './store/reducers/DataReducer';
@@ -25,4 +26,4 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer);
 
 
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

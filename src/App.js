@@ -16,6 +16,7 @@ import green from 'material-ui/colors/green';
 import { withTheme } from 'material-ui/styles';
 import Demo from './demo';
 
+
 const theme = createMuiTheme({
   palette: {
     primary: blue,
@@ -38,9 +39,6 @@ class App extends Component {
 
   render() {
 
-    console.log('constructor');
-    console.log(this.props.store);
-    console.log('constructor');
 
     return (
 
@@ -53,6 +51,7 @@ class App extends Component {
           </Typography>
           </Toolbar>
         </AppBar>
+        <BetBuilder></BetBuilder>
       </MuiThemeProvider>
 
     );
