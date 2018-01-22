@@ -24,7 +24,7 @@ class BetBuilder extends Component {
         console.log(this.props);
         console.log('BetBuilder');
         return (
-           <h1>Olar </h1>
+           <h1>Olar {this.props.ctr} </h1>
         );
     }
 }
@@ -32,7 +32,8 @@ class BetBuilder extends Component {
 const mapStateToProps = state => {
     return {
 
-        data: state.data
+        data: state.data,
+        ctr:  state.ctr.counter
        
     }
 };

@@ -20,7 +20,7 @@ import 'typeface-roboto'
 
 const rootReducer = combineReducers({
   data: DataReducer,
-  result: resultReducer
+  ctr: counterReducer
 });
 
 const store = createStore(rootReducer);
