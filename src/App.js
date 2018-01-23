@@ -51,7 +51,7 @@ class App extends Component {
           </Typography>
           </Toolbar>
         </AppBar>
-        <BetBuilder></BetBuilder>
+        <BetBuilder />
       </MuiThemeProvider>
 
     );

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Team from './Team/Team';
-import classes from '../Match/Match.css';
-import axios from 'axios';
-import Grid from 'material-ui/Grid';
+
+
+import WorldCup from '../../world-cup';
+
 
 import {
   Table,
@@ -19,73 +19,87 @@ import {
 import TextField from 'material-ui/TextField';
 
 
+
 class Match extends Component {
-  state = {
 
-    away: [],
-    home: []
-
-  }
 
   componentWillMount() {
 
-    var awayUrl = "http://localhost:3000/teams/" + this.props.match.away_team;
-    var homeUrl = "http://localhost:3000/teams/" + this.props.match.home_team;
-
-
-    axios.get(awayUrl)
-      .then(response => {
-        console.log("Dentro do away");
-        console.log(response.data);
-        this.setState({ away: response.data });
-        console.log(this.state.away);
-        console.log("Dentro do away");
-      })
-      .catch((error) => {
-        console.log("error", error)
-      });
-
-    axios.get(homeUrl)
-      .then(response => {
-        console.log("Dentro do home");
-        this.setState({ home: response.data });
-        console.log(this.state.home);
-        console.log("Dentro do home");
-      });
-
-    console.log("Time Away");
+    console.log('Vai montar o Match');
 
   }
 
+
+
+
   render() {
+    const { match } = this.props;
+     const styles = {
+    floatingActionButton: {
+      margin: 0,
+      top: 'auto',
+      right: 20,
+      bottom: 20,
+      left: 'auto',
+      position: 'fixed',
+    },
+
+    columns: {
+      home: {
+        width: '20%',
+        textAlign: 'left'
+      },
+      home_score: {
+        width: '20%',
+        textAlign: 'center'
+        
+      },
+      versus: {
+        width: '20%',
+        textAlign: 'center'
+      },
+      away: {
+        width: '20%',
+        textAlign: 'right'
+
+      },
+      away_score: {
+        width: '20%'
+      }
+    }
+  };
 
     return (
 
-      <div>
-        <TableCell>
-       
-     <Team team={this.state.home} /> </TableCell>  
-        <TableCell> <TextField type="number"
-          className="text-field-amount"
-          onInput={(e) => {
-            e.target.value = Math.max(0, parseInt(e.target.value)).toString().slice(0, 2)
-          }}
-          min={0}/> </TableCell>
-        <TableCell>X </TableCell>
-        <TableCell> <TextField type="number"
-    className="text-field-amount"
-    onInput={(e)=>{ 
-        e.target.value = Math.max(0, parseInt(e.target.value) ).toString().slice(0,2)
-    }}
-    min={0}/> </TableCell>
-        <TableCell><Team team={this.state.away} /> </TableCell>
+<h1>OI Match {this.props.match.name}</h1>
+        
+     
+        /* <TableRowColumn style={styles.columns.home_score}>
+          <TextField
+            defaultValue={0}
+            fullWidth={true}
+            type="number"
+            inputStyle={{ textAlign: 'center' }}
 
-      </div>
+          /></TableRowColumn>
+        <TableRowColumn style={styles.columns.versus}>X</TableRowColumn>
 
-    )
+        <TableRowColumn style={styles.columns.home_score}>
+          <TextField
+            defaultValue={0}
+            fullWidth={true}
+            type="number"
+            inputStyle={{ textAlign: 'center' }}
+          /></TableRowColumn>
+        <TableRowColumn style={styles.columns.away}><Team team={WorldCup.teams[match.away_team - 1]} home={false} /></TableRowColumn> */
+
+    
+
+    );
   }
 }
 
 
 
 export default Match;
+
