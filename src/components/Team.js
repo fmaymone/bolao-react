@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import classes from './Team.css';
-import FlagIcon from '../../FlagIcon/FlagIcon';
+
+import FlagIcon from './FlagIcon/FlagIcon';
 import PropTypes from 'prop-types';
 
 
