@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Match from '../components/Match/Match';
+import WorldCup from '../world-cup';
+import Table from 'material-ui/Table/Table';
+import TableBody from 'material-ui/Table/TableBody';
 
 class Group extends Component {
     state = {  };
+
+    
     
     render() {
         let match={
@@ -18,11 +23,20 @@ class Group extends Component {
             "channels": [],
             "finished": false
         }
+        console.log('====================================');
+        console.log(WorldCup);
+        console.log('====================================');
         return (
-            <div>
-            <h1>Oi Group</h1>
-           <Match match = {match} />
-           </div>
+           
+           <Table>
+               <TableBody>
+            {WorldCup.groups.a.matches.map(match =>
+                    <div>   
+                        <Match match = {match} />
+                    </div>
+                )}
+                 </TableBody>
+            </Table>  
         );
     }
 }
