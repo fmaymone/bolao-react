@@ -45,32 +45,48 @@ const styles = theme => ({
 class BetBuilder extends Component {
 
     state = {
-        activeGroup: []
+        activeGroup: [],
+        groups: []
 
     };
 
     componentWillMount(){
         this.setState({activeGroup: WorldCup.groups.a});
+        this.setState({groups: WorldCup.groups});
         console.log(this.state);
-        
-        
-        
 
     }
 
+    handlerNextGroup(){
+
+        console.log('====================================');
+        console.log('nextGroup');
+        this.setState({activeGroup: WorldCup.groups.b});
+        console.log('====================================');
+    }
+
+    handlerPrevGroup(){
+
+        console.log('====================================');
+        console.log('prevGroup');
+        console.log('====================================');
+    }
+
     render () {
-       
+    console.log('=============Groups=======================');
+    console.log(this.state.groups);
+    console.log('====================================');
         return (
         <div className={styles.root}>
             
                 <Grid item xs={3}>
                     <Paper className={styles.paper}>
-                        <Button raised color="secundary" className={styles.button}>Ant</Button>
+                        <Button raised color="secundary" className={styles.button} onClick={() => this.handlerPrevGroup()}>Ant</Button>
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
                     <Paper className={styles.paper}>
-                        <Button raised color="secundary" className={styles.button}>Prox</Button>
+                        <Button raised color="secundary" className={styles.button}  onClick={() => this.handlerNextGroup()} >Prox</Button>
                     </Paper>
                 </Grid>
 

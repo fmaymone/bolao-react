@@ -35,7 +35,7 @@ class Group extends Component {
             "finished": false
         }
         console.log('====================================');
-        console.log(WorldCup);
+        console.log(this.props);
         console.log('====================================');
         return (
            
@@ -43,7 +43,7 @@ class Group extends Component {
         
             <Table className={styles.table}>
                 <TableBody className={styles.table}>
-                    {this.props.group.map(n => {
+                    {this.props.group.matches.map(n => {
                         return (
                             <Match match={n}/>
                         );
