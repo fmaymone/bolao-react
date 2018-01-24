@@ -4,7 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 //import Drawer from 'material-ui/Drawer';
-import BetBuilder from './containers/BetBuilder/BetBuilder';
+import BetBuilder from './containers/BetBuilder';
 import './App.css';
 import Button from "material-ui/Button";
 import Toolbar from 'material-ui/Toolbar';
@@ -15,6 +15,7 @@ import blue from 'material-ui/colors/blue';
 import green from 'material-ui/colors/green';
 import { withTheme } from 'material-ui/styles';
 import Demo from './demo';
+import { Route, Link } from 'react-router-dom';
 
 
 const theme = createMuiTheme({
@@ -39,7 +40,7 @@ class App extends Component {
 
   render() {
 
-
+  
     return (
 
       <MuiThemeProvider theme={theme}>

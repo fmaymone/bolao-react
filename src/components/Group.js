@@ -43,7 +43,7 @@ class Group extends Component {
         
             <Table className={styles.table}>
                 <TableBody className={styles.table}>
-                    {WorldCup.groups.a.matches.map(n => {
+                    {this.props.group.map(n => {
                         return (
                             <Match match={n}/>
                         );

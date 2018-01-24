@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Team from '../../components/Team';
-import Match from '../../components/Match';
-import classes from './BetBuilder.css';
-import Group from '../../components/Group';
+import Team from '../components/Team';
+import Match from '../components/Match';
+
+import Group from '../components/Group';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import WorldCup from '../../world-cup';
+import WorldCup from '../world-cup';
 
 import 'typeface-roboto';
 
@@ -44,31 +44,43 @@ const styles = theme => ({
 
 class BetBuilder extends Component {
 
+    state = {
+        activeGroup: []
+
+    };
+
+    componentWillMount(){
+        this.setState({activeGroup: WorldCup.groups.a});
+        console.log(this.state);
+        
+        
+        
+
+    }
+
     render () {
-        console.log('BetBuilder');
-        console.log(this.props.data);
-        console.log('BetBuilder');
+       
         return (
         <div className={styles.root}>
             
                 <Grid item xs={3}>
                     <Paper className={styles.paper}>
-                        <Button raised color="primary" className={classes.button}>Ant</Button>
+                        <Button raised color="secundary" className={styles.button}>Ant</Button>
                     </Paper>
                 </Grid>
                 <Grid item xs={3}>
                     <Paper className={styles.paper}>
-                        <Button raised color="primary" className={classes.button}>Prox</Button>
+                        <Button raised color="secundary" className={styles.button}>Prox</Button>
                     </Paper>
                 </Grid>
 
             <Grid item xs={6}>
-                <Paper className={styles.paper}><Group /></Paper>
+                <Paper className={styles.paper}><Group group={this.state.activeGroup}/></Paper>
             </Grid>
 
             <Grid item xs={3}>
                     <Paper className={styles.paper}>
-                        <Button raised color="primary" className={classes.button}>Enviar</Button>
+                        <Button raised color="secundary" className={styles.button}>Enviar</Button>
                     </Paper>
                 </Grid>
         </div>
