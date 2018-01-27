@@ -25,8 +25,10 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer);
 ReactDOM.render(
 
-<BrowserRouter>
+
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
-</BrowserRouter>, document.getElementById('root'));
+, document.getElementById('root'));

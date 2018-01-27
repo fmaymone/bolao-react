@@ -19,6 +19,8 @@ import { Route, Link, Router } from 'react-router-dom';
 import LoginPage from './containers/LoginPage';
 import Header from './components/Layout/Header';
 import Home from './containers/Home';
+import Main from './containers/Main';
+
 
 
 const theme = createMuiTheme({
@@ -57,7 +59,7 @@ class App extends Component {
 
       <MuiThemeProvider theme={theme}>
        <Header />
-          <Home />
+          <Main />
       </MuiThemeProvider>
 
         );

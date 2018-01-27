@@ -7,6 +7,9 @@ import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
+import { Route, Router } from 'react-router';
+import LoginPage from '../../containers/LoginPage';
+import { Link } from 'react-router-dom';
 
 const styles = {
     root: {
@@ -24,8 +27,19 @@ const styles = {
   function Header(props) {
     const { classes } = props;
     return (
-      <div className={classes.root}>
+
+      <div>
+      <header>
+      <nav>
+        <ul>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/pool'>Pool</Link></li>
+          <li><Link to='/login'>Login</Link></li>
+        </ul>
+      </nav>
+    </header>
         <AppBar position="static">
+       
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
@@ -33,10 +47,12 @@ const styles = {
             <Typography type="title" color="inherit" className={classes.flex}>
               Teste
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Link to='/login'>
+             <Button color="inherit">Login</Button>
+            </Link>
           </Toolbar>
         </AppBar>
-      </div>
+        </div>
     );
   }
   
