@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Match from '../components/Match/Match';
+import Match from '../components/Match';
 import WorldCup from '../world-cup';
-import Table from 'material-ui/Table/Table';
-import TableBody from 'material-ui/Table/TableBody';
+
+import Paper from 'material-ui/Paper';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+
+const styles = theme => ({
+    root: {
+      width: '100%',
+      marginTop: theme.spacing.unit * 3,
+      overflowX: 'auto',
+    },
+    table: {
+      minWidth: 700
+      
+      
+    },
+  });
 
 class Group extends Component {
     state = {  };
-
-    
-    
     render() {
         let match={
             "name": 1,
@@ -24,19 +35,22 @@ class Group extends Component {
             "finished": false
         }
         console.log('====================================');
-        console.log(WorldCup);
+        console.log(this.props);
         console.log('====================================');
         return (
            
-           <Table>
-               <TableBody>
-            {WorldCup.groups.a.matches.map(match =>
-                    <div>   
-                        <Match match = {match} />
-                    </div>
-                )}
-                 </TableBody>
-            </Table>  
+     
+        
+            <Table className={styles.table}>
+                <TableBody className={styles.table}>
+                    {this.props.group.matches.map(n => {
+                        return (
+                            <Match match={n}/>
+                        );
+                    })}
+                </TableBody>
+            </Table>
+        
         );
     }
 }

@@ -12,10 +12,9 @@ import { createStore, combineReducers } from 'redux';
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 import DataReducer from './store/reducers/DataReducer';
-
-
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router';
+import routes from './routes';
 import 'typeface-roboto'
 
 const rootReducer = combineReducers({
@@ -24,6 +23,12 @@ const rootReducer = combineReducers({
 });
 
 const store = createStore(rootReducer);
+ReactDOM.render(
 
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+, document.getElementById('root'));
